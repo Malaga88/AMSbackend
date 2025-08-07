@@ -20,7 +20,7 @@ const app = express();
 const PORT = 4000;
 
 app.use(cors({
-    origin:'http://127.0.0.1:5500',
+    origin:['http://127.0.0.1:5501', 'https://amsbackend-xx23.onrender.com'],
     credentials: true,
     method: ['GET', 'POST', 'PUT', 'DELETE']
 }));
