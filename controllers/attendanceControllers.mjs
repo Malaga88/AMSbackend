@@ -16,6 +16,7 @@ export const markAttendance = async (req, res) => {
 
     // 1. Find user by ID
     const user = await User.findOne({ studentId: id });
+    console.log('User found:', user);
     if (!user) {
       return res.status(404).json({
         success: false,
