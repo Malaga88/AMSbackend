@@ -59,7 +59,7 @@ export const markAttendance = async (req, res) => {
         course: user.name,
         status: 'present',
         Date: today,
-        name: user.name, // Include user name
+        name: user.name, 
       });
 
       await attendance.save();
@@ -71,10 +71,7 @@ export const markAttendance = async (req, res) => {
           id: attendance.id,
           course: attendance.course,
           status: attendance.status,
-          date: attendance.Date.toISOString().split('T')[0], // Format date as YYYY-MM-DD
-          // name: attendance.name, // Include user name
-          // createdAt: attendance.createdAt.toDateString().split('T')[1], // Format createdAt as YYYY-MM-DD
-          // updatedAt: attendance.updatedAt.toDateString().split('T')[1], // Format updatedAt as YYYY-MM-DD
+          date: attendance.Date.toISOString().split('T')[0], 
         },
       });
     } else if (existing.status === 'present') {
