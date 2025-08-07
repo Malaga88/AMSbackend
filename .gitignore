@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Build artifacts
+build/
+dist/
+
+# Environment variables / Sensitive data
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# IDE and OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Generated files (example for compiled languages)
+*.class
+*.o
+*.exe
