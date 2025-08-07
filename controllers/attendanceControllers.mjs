@@ -55,7 +55,7 @@ export const markAttendance = async (req, res) => {
       // Not marked yet – mark as present
       const attendance = new Attendance({
         id,
-        course: user.course,
+        course: user.name,
         status: 'present',
         Date: today,
         name: user.name, // Include user name
