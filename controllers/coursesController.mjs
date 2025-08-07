@@ -2,9 +2,10 @@ import Course from "../models/coursesModel.mjs";
 
 export const createCourse = async (req, res) => {
     try {
-        const { name, instructor, time } = req.body;
+        const { name, instructor, time, day } = req.body;
 
         const existingCourse = await Course.findOne({ name });
+        console.log(existingCourse);
         if (existingCourse) {
             return res.status(409).json({ message: "A course with this name already exists." });
         }
