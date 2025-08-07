@@ -1,6 +1,7 @@
 import User from '../models/userModel.mjs';
 import Course from '../models/coursesModel.mjs';
 import Attendance from '../models/attendanceModel.mjs';
+import e from 'express';
 
 export const markAttendance = async (req, res) => {
   try {
@@ -84,7 +85,15 @@ export const markAttendance = async (req, res) => {
       return res.status(200).json({
         success: true,
         message: 'Attendance updated to checkout',
-        data: existing,
+        data: {
+          id: existing.id,
+          course: existing.course,
+          status: existing.status,
+          createdAt: existing.createdAt.toISOString().split('T')[1], 
+          updatedAt: existing.updatedAt.toISOString().split('T')[1],
+          date: existing.Date.toISOString().split('T')[0], // Format date as YYYY-MM-DD
+          name: user.name,
+        },
       });
     } else {
       // Already marked with other status (absent or checkout)
