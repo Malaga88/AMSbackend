@@ -71,8 +71,8 @@ export const markAttendance = async (req, res) => {
           status: attendance.status,
           date: attendance.Date.toISOString().split('T')[0], // Format date as YYYY-MM-DD
           name: user.name, // Include user name
-          createdAt: attendance.createdAt,
-          updatedAt: attendance.updatedAt,
+          createdAt: attendance.createdAt.toDateString().split('T')[1], // Format createdAt as YYYY-MM-DD
+          updatedAt: attendance.updatedAt.toDateString().split('T')[1], // Format updatedAt as YYYY-MM-DD
         },
       });
     } else if (existing.status === 'present') {
