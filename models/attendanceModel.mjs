@@ -6,6 +6,11 @@ const AttendanceSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    name:{
+        type: String,
+        required: true,
+        trim: true
+    },
     course: {
         type: String,
         required: true,
