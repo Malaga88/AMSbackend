@@ -65,7 +65,15 @@ export const markAttendance = async (req, res) => {
       return res.status(201).json({
         success: true,
         message: 'Attendance marked as present',
-        data: attendance,
+        data: {
+          id: attendance.id,
+          course: attendance.course,
+          status: attendance.status,
+          date: attendance.Date.toISOString().split('T')[0], // Format date as YYYY-MM-DD
+          name: user.name, // Include user name
+          createdAt: attendance.createdAt,
+          updatedAt: attendance.updatedAt,
+        },
       });
     } else if (existing.status === 'present') {
       // Already marked present – now mark as checkout
