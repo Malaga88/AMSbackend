@@ -20,8 +20,8 @@ adminRouter.post('/create-course', requireAdmin, createCourse);
 adminRouter.delete('/delete', requireAdmin, deleteUser);
 adminRouter.get('/get-courses', requireAdmin, getCourses);
 adminRouter.get('/get-course/:id', requireAdmin, getCourseById);
-adminRouter.get('/attendance', requireAdmin, getAttendance);
+adminRouter.get('/attendance', getAttendance);
 adminRouter.delete('/delete-course/:id', requireAdmin, deleteCourse);
-adminRouter.get('/get-users', requireAdmin, getUsers);
+adminRouter.get('/get-users', getUsers);
 
 export default adminRouter;
