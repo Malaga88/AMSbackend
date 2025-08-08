@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import Admin from '../models/adminModel.mjs';
 
 export const verifyToken = (req, res, next) => {
-    const authHeader = req.headers.authorization;
+    const authHeader = req.headers.Authorization;
 
     if (!authHeader?.startsWith('Bearer ')) {
         return res.status(401).json({ message: 'No token provided' });
