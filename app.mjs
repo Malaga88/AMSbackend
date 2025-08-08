@@ -21,7 +21,9 @@ const PORT = 4000;
 
 
 app.use(cors({
-  origin: '*', // or '*' if not using credentials
+    origin: 'http://127.0.0.1:5500',
+    credentials: true   ,
+    method: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
 
