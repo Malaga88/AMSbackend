@@ -19,10 +19,17 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 4000;
 
+const allowedOrigins = ['http://localhost:3000', 'http://192.168.0.105:3000']; // your IP here
+
 app.use(cors({
-    origin:['http://127.0.0.1:5500', 'https://amsbackend-xx23.onrender.com'],
-    credentials: true,
-    method: ['GET', 'POST', 'PUT', 'DELETE']
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // If you use cookies or sessions
 }));
 
 app.use(express.json());
