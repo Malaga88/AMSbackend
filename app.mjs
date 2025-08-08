@@ -19,7 +19,10 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 4000;
 
-app.use(cors()); // This is enough for open access
+
+app.use(cors({
+  origin: '*', // or '*' if not using credentials
+}));
 
 
 app.use(express.json());
