@@ -19,27 +19,9 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 4000;
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://192.168.0.105:3000', // your LAN IP
-  'https://fadil-svg.github.io/Attendance-Management-System'
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+  origin: '*'
 }));
-app.use((req, res, next) => {
-  console.log("Origin of request:", req.headers.origin);
-  next();
-});
 
 
 app.use(express.json());
