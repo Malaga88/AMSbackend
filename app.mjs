@@ -22,14 +22,8 @@ const PORT = 4000;
 const allowedOrigins = ['http://localhost:3000', 'http://192.168.0.105:3000']; // your IP here
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // If you use cookies or sessions
+  origin: ['https://fadil-svg.github.io/Attendance-Management-System'], 
+  credentials: true
 }));
 
 app.use(express.json());
