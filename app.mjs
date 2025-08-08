@@ -19,10 +19,26 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 4000;
 
-app.use(cors({
-  origin: '*'
-}));
 
+// Define allowed origins
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://fadil-svg.github.io'
+];
+
+// Set up CORS with credentials
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like curl or Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 app.use(express.json());
 
